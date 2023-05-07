@@ -1,0 +1,9 @@
+---
+- name: install apache2
+  package:
+    name: '{{package_name}}'
+    state: present
+  register: install_result
+  notify:
+    - copy_by_template
+    - restart_apache2
